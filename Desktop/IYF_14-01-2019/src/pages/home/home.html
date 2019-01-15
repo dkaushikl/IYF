@@ -1,0 +1,215 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-buttons left menuToggle>
+      <button ion-button icon-only>
+        <img src="./assets/imgs/Side menu.png" class="menu-icon" />
+      </button>
+    </ion-buttons>
+    <ion-title text-center>Events</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <img src="./assets/imgs/Search_White.png" class="menu-icon" />
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="home-container">
+  <ion-slides class="home-slider-container" *ngIf="bannerData" padding paginationType="bullets" pager>
+    <ion-slide class="slider-slides" *ngFor="let banner of bannerData">
+      <img [src]="banner.image" class="slider-img" />
+      <img src="./assets/imgs/slider-bottom.png" class="slider-img-overlay" />
+      <div class="slider-text">
+        <div class="slider-text-left">
+          <span style="font-size: 13px; color: #eee">Wednesday 12, 2018</span><br>
+          <span style="font-size: 17px; font-weight: bold;">Theraputic Yoga</span>
+        </div>
+        <div class="slider-text-right">
+          <span style="font-size: 16px;">New York, USA</span>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="card-slider">
+    <ion-scroll scrollX="true" direction="x">
+
+      <ion-card class="card1 slide-card">
+        <img src="./assets/imgs/Yoga icon_White.png" class="scroll-slide-img" />
+        <ion-card-header>
+          <div class="count" text-wrap>
+            UPCOMMING EVENTS
+          </div>
+        </ion-card-header>
+        <ion-card-content class="scroll-slide-desc">
+          No Events
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="card2 slide-card">
+        <img src="./assets/imgs/Yoga icon_White.png" class="scroll-slide-img" />
+        <ion-card-header>
+          <div class="count" text-wrap>
+            TODAYS EVENTS
+          </div>
+        </ion-card-header>
+        <ion-card-content class="scroll-slide-desc">
+          No Events
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="card3 slide-card">
+        <img src="./assets/imgs/Yoga icon_White.png" class="scroll-slide-img" />
+        <ion-card-header>
+          <div class="count" text-wrap>
+            TODAYS EVENTS
+          </div>
+        </ion-card-header>
+        <ion-card-content class="scroll-slide-desc">
+          No Events
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="card4 slide-card">
+        <img src="./assets/imgs/Yoga icon_White.png" class="scroll-slide-img" />
+        <ion-card-header>
+          <div class="count" text-wrap>
+            TODAYS EVENTS
+          </div>
+        </ion-card-header>
+        <ion-card-content class="scroll-slide-desc">
+          No Events
+        </ion-card-content>
+      </ion-card>
+    </ion-scroll>
+  </div>
+
+  <div *ngIf="eventListData">
+    <div class="category-container" padding *ngFor="let event of eventListData">
+      <div class="cate-title-container">
+        <div class="category-title">
+          {{ event.category_name }}
+        </div>
+        <div class="see-all" (click)="cateEvent(event.data[0].categoryId, event.category_name)">
+          See All
+        </div>
+        <div style="clear: both"></div>
+      </div>
+
+      <div class="category-list">
+        <!-- <div class="cate-img">
+                                <img src='./assets/imgs/slider-img.png' />
+                            </div> -->
+        <ion-list *ngIf="event.data">
+          <ion-item class="categ-item" style="padding: 0" *ngFor="let eventData of event.data" (click)="eventDetail(eventData.id)">
+            <ion-thumbnail item-start class="cate-img">
+              <!-- <img [src]="eventData.image"> -->
+              <div class="event-img" [style.backgroundImage]="'url(' + eventData.image  + ')'">
+
+              </div>
+            </ion-thumbnail>
+            <div class="cate-detail">
+              <div class="cate-side-title" text-wrap>
+                {{ eventData.eventName }}
+              </div>
+              <div class="location-date">
+                <div class="location-txt">
+                  {{ eventData.location }}
+                </div>
+                <div class="date-txt">
+                  {{ eventData.eventDate }}
+                </div>
+                <div style="clear: both"></div>
+              </div>
+              <div class="cate-data">
+                <div class="cate-detail-txt" text-wrap>
+                  {{ eventData.description }}
+                </div>
+                <div class="cate-read-more">
+                  Read More
+                </div>
+              </div>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+
+    <!-- <div class="category-container" padding>
+            <div class="cate-title-container">
+                <div class="category-title">
+                    International Festival
+                </div>
+                <div class="see-all">
+                    See All
+                </div>
+                <div style="clear: both"></div>
+            </div>
+
+            <div class="category-list">
+                <ion-list>
+                    <ion-item class="categ-item" style="padding: 0">
+                        <ion-thumbnail item-start class="cate-img">
+                            <img src="./assets/imgs/slider-img.png">
+                        </ion-thumbnail>
+                        <div class="cate-detail">
+                            <div class="cate-side-title" text-wrap>
+                                International Yoga Festival
+                            </div>
+                            <div class="location-date">
+                                <div class="location-txt">
+                                    New York, USA
+                                </div>
+                                <div class="date-txt">
+                                    23 Dec, 2018
+                                </div>
+                                <div style="clear: both"></div>
+                            </div>
+                            <div class="cate-data">
+                                <div class="cate-detail-txt" text-wrap>
+                                    Lorem ipsum color sit amet. consectetur elit.
+                                </div>
+                                <div class="cate-read-more">
+                                    Read More
+                                </div>
+                            </div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item class="categ-item" style="padding: 0">
+                        <ion-thumbnail item-start class="cate-img">
+                            <img src="./assets/imgs/slider-img.png">
+                        </ion-thumbnail>
+                        <div class="cate-detail">
+                            <div class="cate-side-title" text-wrap>
+                                International Yoga Festival
+                            </div>
+                            <div class="location-date">
+                                <div class="location-txt">
+                                    New York, USA
+                                </div>
+                                <div class="date-txt">
+                                    23 Dec, 2018
+                                </div>
+                                <div style="clear: both"></div>
+                            </div>
+                            <div class="cate-data">
+                                <div class="cate-detail-txt" text-wrap>
+                                    Lorem ipsum color sit amet. consectetur elit.
+                                </div>
+                                <div class="cate-read-more">
+                                    Read More
+                                </div>
+                            </div>
+                        </div>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div> -->
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,42 @@
+page-contact-us {
+    .contact-container {
+        background: #fff6f5;
+    }
+
+    .contact-title {
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+
+    .contact-item {
+        padding:  10px 0;
+
+        .contact-point {
+            color: #b72b24;
+            padding-bottom: 5px;
+    
+            .icon-img {
+                width: 4%;
+                vertical-align: middle;
+            }
+            .contact-txt {
+                margin-left: 5px;
+            }
+        }
+    }
+    [col-4] {
+        padding: 0;
+    }
+
+    .social-btns {
+        padding-top: 20px;
+    }
+
+    #map {
+        width: 100%;
+        height: 200px;
+        margin: 15px 0;
+      }
+}

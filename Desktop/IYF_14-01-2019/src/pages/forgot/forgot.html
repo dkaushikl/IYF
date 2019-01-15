@@ -1,0 +1,41 @@
+<ion-content class="login-container">
+        <div padding>
+            <div class="login-title">
+                <div class="app-name">
+                    INTERNATIONAL YOGA
+                </div>
+                <div class="app-name">
+                    FESTIVAL
+                </div>
+            </div>
+            <div class="login-desc">
+                Please login to your account to continue with app
+            </div>
+            <div class="login-form-container">
+                <form>
+                    <ion-list class="input-container">
+                        <ion-item>
+                            <ion-label>
+                                <img src="./assets/imgs/user.png" class="input-img" />
+                            </ion-label>
+                            <ion-input placeholder="Email Address" ([ngModel])="forgotData.email" name="forgotData.email"  type="email" class="input-box"></ion-input>
+                            <!-- <span *ngIf="fname.errors && (fname.dirty || fname.touched || registerForm.submitted)" class="text-danger">
+                                <span [hidden]="!fname.errors.required">
+                                    Please enter your first name.
+                                </span>
+                            </span> -->
+                        </ion-item>
+                    </ion-list>
+                    <div class="login-btn-container">
+                        <button type="button" class="login-btn" (click)="doForgot()">
+                            <span class="login-txt">Submit</span>
+                            <img src="./assets/imgs/Right arrow.png" class="login-img" />
+                        </button>
+                    </div>
+                    <div class="forgot-txt">
+                        Have an account? <span class="signup-txt" (click)="signin()"><u>Sign in</u></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ion-content>

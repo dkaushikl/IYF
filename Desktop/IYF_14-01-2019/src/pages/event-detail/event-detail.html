@@ -1,0 +1,88 @@
+<ion-header no-border>
+
+  <ion-navbar transparent>
+    <ion-buttons left menuToggle>
+      <button ion-button icon-only>
+        <img src="./assets/imgs/Side menu.png" class="menu-icon" />
+      </button>
+    </ion-buttons>
+    <ion-title text-center>Details</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <img src="./assets/imgs/share.png" class="menu-icon" />
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="event">
+  <div [ngStyle]="{'background-image': 'url(' + event.image + ')'}" style="height: 300px; box-shadow: 7px 11px 29px 6px rgba(0,0,0,0.4) inset;background-position: center  !important; background-size: cover !important;">
+    <div>
+    </div>
+  </div>
+  <div class="detail-data">
+    <div padding class="detail-sub">
+      <div class="event-title">
+        {{ event.eventName }}
+      </div>
+      <div class="event-location-time">
+        <ion-row>
+          <ion-col col-4>
+            <img src="../../assets/imgs/Address.png" class="detail-location-img" />
+            <span class="location-img-txt"> Address</span>
+          </ion-col>
+          <ion-col col-8 class="location-data">
+            {{ event.location }}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>
+            <img src="../../assets/imgs/Time2.png" class="detail-location-img" />
+            <span class="location-img-txt"> Time</span>
+          </ion-col>
+          <ion-col col-8 class="location-data">
+            {{ event.eventTime }}
+            <!-- 09:00 AM To 04:00 PM -->
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>
+            <img src="../../assets/imgs/Date2.png" class="detail-location-img" />
+            <span class="location-img-txt"> Date</span>
+          </ion-col>
+          <ion-col col-8 class="location-data">
+            {{ event.eventDate }}
+            <!-- Saturday, 12 january, 2019 -->
+          </ion-col>
+        </ion-row>
+      </div>
+      <div>
+        <button ion-button color="primary" class="reminder-btn" (click)="addReminder()">Add Reminder</button>
+      </div>
+      <hr>
+      <div class="description">
+        <div class="desc-title">Description</div>
+        <div class="desc-data">
+          {{ event.description }}
+        </div>
+      </div>
+      <hr style="margin-top: 15px;">
+      <ion-list>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="./assets/imgs/slider-img.png">
+          </ion-avatar>
+          <p>organied by</p>
+          <h3> {{ event.presentetor }}</h3>
+        </ion-item>
+      </ion-list>
+      <hr>
+      <div>
+        <button ion-button color="primary" class="reminder-btn" (click)="goToSchedule(event.id)">See Schedule</button>
+      </div>
+    </div>
+  </div>
+</div>
+</ion-content>

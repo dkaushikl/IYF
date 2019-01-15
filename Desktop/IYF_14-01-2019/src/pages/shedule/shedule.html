@@ -1,0 +1,70 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-toolbar>
+      <ion-buttons left menuToggle>
+        <button ion-button icon-only>
+          <img src="./assets/imgs/Side menu.png" class="menu-icon" />
+        </button>
+      </ion-buttons>
+      <ion-title text-center>My Schedule</ion-title>
+      <ion-buttons right>
+        <button ion-button icon-only>
+          <img src="./assets/imgs/Search_White.png" class="menu-icon" />
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+    <!-- <ion-toolbar class="header-segment">
+            <ion-segment [(ngModel)]="mySchedule" color="secondary">
+                <ion-segment-button value="puppies" class="both-segment-1">
+                    Schedule
+                </ion-segment-button>
+                <ion-segment-button value="kittens" class="both-segment-2">
+                    Invitations
+                </ion-segment-button>
+            </ion-segment>
+        </ion-toolbar> -->
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="schedule-container">
+  <!-- <div [ngSwitch]="mySchedule"> -->
+  <ion-list no-lines class="schedule-list">
+    <ion-item class="schedule-list-item">
+      <ion-row *ngFor="let schedule of scheduleList">
+        <ion-col col-3 class="schedule-time">
+          <div class="event-time"> {{ schedule.time }} </div>
+          <div class="event-am-pm">AM</div>
+          <div>
+            <img src="../../assets/imgs/Orange.png" class="dot-img" />
+          </div>
+        </ion-col>
+        <ion-col col-7>
+          <div class="card-slider">
+            <ion-scroll scrollX="true" direction="x">
+              <ion-card *ngFor="let scheduleData of schedule.data" class="card1 slide-card" style="background: url('./assets/imgs/slider-img.png') !important; background-position: center  !important; background-size: cover !important;">
+                <div style="background: rgba(0,0,0, 0.5);">
+                  <ion-card-header class="card-title">
+                    <div class="count" text-wrap>
+                      {{ scheduleData.name }}
+                    </div>
+                  </ion-card-header>
+                  <ion-card-content class="scroll-slide-desc">
+                    No Events
+                  </ion-card-content>
+                </div>
+              </ion-card>
+            </ion-scroll>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-fab right bottom>
+      <button ion-fab color="primary">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+  </ion-list>
+  <!-- </div> -->
+</ion-content>

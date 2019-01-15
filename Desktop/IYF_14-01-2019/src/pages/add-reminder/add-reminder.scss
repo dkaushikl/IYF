@@ -1,0 +1,16 @@
+page-add-reminder {
+    .item-md ion-thumbnail ion-img, .item-md ion-thumbnail img,
+    .item-ios ion-thumbnail ion-img, .item-ios ion-thumbnail img {
+        border-radius: 10px;
+    }
+
+    .add-event-card {
+        margin: 0;
+        width: 100%;
+    }
+
+    .add-reminder-btn {
+        padding: 20px;
+        border-radius: 7px;
+    }
+}

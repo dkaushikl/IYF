@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>Create a Reminder</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="add-reminder-container">
+  <div class="event-detail">
+    <ion-card class="add-event-card">
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="./assets/imgs/slider-img.png">
+          </ion-thumbnail>
+          <h2 text-wrap>Divine Activities During Seventh Day</h2>
+          <p>The yoga master</p>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+  <div>
+    <form>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label floating>Reminder Title</ion-label>
+            <ion-input type="text" [(ngModel)]="reminderData.title" name="reminderData.title"></ion-input>
+          </ion-item>
+        </ion-col>
+        <!-- <ion-col col-6>
+          <ion-item>
+            <ion-label floating>Time</ion-label>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="reminderData.time" name="reminderData.time"></ion-datetime>
+            <img src="../../assets/imgs/Clock.png" class="card-bottom-img" />
+          </ion-item>
+        </ion-col> -->
+        <ion-col col-6>
+          <ion-item>
+            <ion-label floating>Start Date</ion-label>
+            <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="reminderData.startDate"
+              name="reminderData.date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label floating>End Date</ion-label>
+            <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="reminderData.endDate"
+              name="reminderData.date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label floating>Address</ion-label>
+            <ion-textarea rows="3" [(ngModel)]="reminderData.address" name="reminderData.Address"></ion-textarea>
+          </ion-item>
+        </ion-col>
+        <!-- <ion-col col-12>
+          <ion-item>
+            <ion-label floating>Repeat</ion-label>
+            <ion-select [(ngModel)]="reminderData.repeat" name="reminderData.repeat">
+              <ion-option value="nes">NES</ion-option>
+              <ion-option value="n64">Nintendo64</ion-option>
+              <ion-option value="ps">PlayStation</ion-option>
+              <ion-option value="genesis">Sega Genesis</ion-option>
+              <ion-option value="saturn">Sega Saturn</ion-option>
+              <ion-option value="snes">SNES</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col> -->
+        <ion-col col-12>
+          <ion-item>
+            <ion-label floating>Notes</ion-label>
+            <ion-textarea rows="6" [(ngModel)]="reminderData.notes" name="reminderData.notes"></ion-textarea>
+          </ion-item>
+        </ion-col>
+        <ion-col col-12 padding>
+          <button ion-button color="primary" block class="add-reminder-btn" (click)="setReminder()"> Submit </button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>

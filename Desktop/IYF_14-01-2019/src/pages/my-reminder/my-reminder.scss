@@ -1,0 +1,23 @@
+page-my-reminder {
+    .reminder-container {
+        background: #f6f5fa;
+    }
+    .card-location {
+        width: 7%;
+        float: left;
+        margin-right: 10px; 
+    }
+
+    .card-bottom-img {
+        width: 10%;
+        float: left;
+        margin-right: 10px;
+    }
+    .reminder-card {
+        border-radius: 10px;
+        box-shadow: none;
+    }
+    .ion-thumbnail img {
+        border-radius: 10px;
+    }
+}

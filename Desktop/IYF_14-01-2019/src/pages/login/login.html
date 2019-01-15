@@ -1,0 +1,58 @@
+<ion-content class="login-container">
+    <div class="login-logo-img">
+        <img src="./assets/imgs/Background.png" />
+    </div>
+    <div padding>
+        <div class="login-title">
+            <div class="app-name">
+                INTERNATIONAL YOGA
+            </div>
+            <div class="app-name">
+                FESTIVAL
+            </div>
+        </div>
+        <div class="login-desc">
+            Please login to your account to continue with app
+        </div>
+        <div class="login-form-container">
+            <ion-list class="input-container">
+                <ion-item>
+                    <ion-label>
+                        <img src="./assets/imgs/email.png" class="input-img" />
+                    </ion-label>
+                    <ion-input placeholder="Email Address" [(ngModel)]="loginData.email" name="loginData.email" type="email"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>
+                        <img src="./assets/imgs/password.png" class="input-img" />
+                    </ion-label>
+                    <ion-input placeholder="Password" [(ngModel)]="loginData.password" name="loginData.password" type="password"></ion-input>
+                    <!-- <ion-label end>
+                        <img src="./assets/imgs/password.png" class="input-img" />
+                    </ion-label> -->
+                </ion-item>
+            </ion-list>
+            <div class="login-btn-container">
+                <button type="button" class="login-btn" (click)="doLogin()">
+                    <span class="login-txt">LOG IN </span>
+                    <img src="./assets/imgs/Right arrow.png" class="login-img" />
+                </button>
+            </div>
+
+            <div class="forgot-txt" (click)="forgotPwd()">
+                Forgot Password?
+            </div>
+            <div class="forgot-txt or-txt">
+                OR
+            </div>
+            <div class="fb-btn">
+                <img src="./assets/imgs/facebook-txt.png" />
+                <!-- <div class="fb-login-txt">Login with Facebook</div> -->
+            </div>
+            <div class="forgot-txt">
+                Don't have an account? <span class="signup-txt" (click)="signUp()"><u>Sign up</u></span>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,105 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title></ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="login-container">
+    <div padding>
+        <div class="login-title">
+            <div class="app-name">
+                INTERNATIONAL YOGA
+            </div>
+            <div class="app-name">
+                FESTIVAL
+            </div>
+        </div>
+        <div class="login-desc">
+            Please register with detail to continue with app
+        </div>
+        <div class="login-form-container">
+            <form>
+                <ion-list class="input-container">
+                    <ion-item>
+                        <ion-label>
+                            <img src="./assets/imgs/user.png" class="input-img" />
+                        </ion-label>
+                        <ion-input placeholder="First Name" ([ngModel])="fName" name="fName"  type="text" class="input-box"></ion-input>
+                        <!-- <span *ngIf="fname.errors && (fname.dirty || fname.touched || registerForm.submitted)" class="text-danger">
+                            <span [hidden]="!fname.errors.required">
+                                Please enter your first name.
+                            </span>
+                        </span> -->
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <img src="./assets/imgs/user.png" class="input-img" />
+                        </ion-label>
+                        <ion-input placeholder="Last Name" [(ngModel)]="lName" name="lName" type="text" class="input-box"></ion-input>
+                        <!-- <span *ngIf="lname.errors && (lname.dirty || lname.touched || registerForm.submitted)" class="text-danger">
+                            <span [hidden]="!lname.errors.required">
+                                Please enter your last name.
+                            </span>
+                        </span> -->
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <img src="./assets/imgs/email.png" class="input-img" />
+                        </ion-label>
+                        <ion-input placeholder="Email" [(ngModel)]="registerData.email" name="registerData.email"  type="email" class="input-box"></ion-input>
+                        <!-- <span *ngIf="uemail.errors && (uemail.dirty || uemail.touched || registerForm.submitted)" class="text-danger">
+                            <span [hidden]="!uemail.errors.required">
+                                Please enter your Email.
+                            </span>
+                        </span> -->
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <img src="./assets/imgs/Number.png" class="input-img" />
+                        </ion-label>
+                        <ion-input placeholder="Contact Number" [(ngModel)]="registerData.phone_number" name="registerData.phone_number" type="number" class="input-box"></ion-input>
+                        <!-- <span *ngIf="ucontact.errors && (ucontact.dirty || ucontact.touched || registerForm.submitted)" class="text-danger">
+                            <span [hidden]="!ucontact.errors.required">
+                                Please enter your Contact Number.
+                            </span>
+                        </span> -->
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <img src="./assets/imgs/Address.png" class="input-img" />
+                        </ion-label>
+                        <ion-input placeholder="Address" [(ngModel)]="registerData.address" name="registerData.address" type="text" class="input-box"></ion-input>
+                        <!-- <span *ngIf="uaddress.errors && (uaddress.dirty || uaddress.touched || registerForm.submitted)" class="text-danger">
+                            <span [hidden]="!uaddress.errors.required">
+                                Please enter Address.
+                            </span>
+                        </span> -->
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <img src="./assets/imgs/password.png" class="input-img" />
+                        </ion-label>
+                        <ion-input placeholder="Password" [(ngModel)]="registerData.password" name="registerData.password" type="password" class="input-box"></ion-input>
+                        <!-- <span *ngIf="upassword.errors && (upassword.dirty || upassword.touched || registerForm.submitted)" class="text-danger">
+                            <span [hidden]="!upassword.errors.required">
+                                Please enter Password.
+                            </span>
+                        </span> -->
+                    </ion-item>
+                </ion-list>
+                <div class="login-btn-container">
+                    <button type="button" class="login-btn" (click)="doRegister()">
+                        <span class="login-txt">SIGN UP </span>
+                        <img src="./assets/imgs/Right arrow.png" class="login-img" />
+                    </button>
+                </div>
+                <div class="forgot-txt">
+                    Have an account? <span class="signup-txt" (click)="signin()"><u>Sign in</u></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</ion-content>

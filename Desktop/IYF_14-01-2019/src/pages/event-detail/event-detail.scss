@@ -1,0 +1,62 @@
+page-event-detail {
+    .scroll-content {
+        margin-top: 0 !important    
+    }
+    .toolbar-title {
+        color: #ffffff;
+    }
+    .detail-data {
+        position: relative;
+        border-radius: 20px;
+
+        .detail-sub {
+            border-radius: 34px;
+            position: absolute;
+            top: -30px;
+            background: #fff;
+        }
+
+        .event-location-time {
+            padding-top: 15px;
+        }
+
+        .event-title {
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 28px;
+        }
+
+        .detail-location-img {
+            vertical-align: middle;
+            margin-right: 10px;
+            width: 15%;
+        }
+
+        .location-img-txt {
+            color: #d04b41;
+        }
+
+        .location-data {
+            line-height: 20px;
+        }
+    }
+    .reminder-btn {
+        width: 100%;
+        padding: 25px;
+        border-radius: 8px;
+        margin: 15px 0;
+        box-shadow: none;
+    }
+    .description {
+        margin-top: 15px;
+
+        .desc-title {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 0 0 10px 0;
+        }
+        .desc-data {
+            color: #c1c1c1;
+        }
+    }
+}

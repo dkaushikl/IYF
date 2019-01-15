@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-buttons left menuToggle>
+      <button ion-button icon-only>
+        <img src="./assets/imgs/Side menu.png" class="menu-icon" />
+      </button>
+    </ion-buttons>
+    <ion-title text-center>{{ categoryName }}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <img src="./assets/imgs/Search_White.png" class="menu-icon" />
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="eventListData">
+    <div class="category-container" padding>
+      <div class="category-list">
+        <ion-list *ngIf="eventListData.data">
+          <ion-item class="categ-item" style="padding: 0" *ngFor="let eventData of eventListData.data" (click)="eventDetail(eventData.id)">
+            <ion-thumbnail item-start class="cate-img">
+              <div class="event-img" [style.backgroundImage]="'url(' + eventData.image  + ')'">
+              </div>
+            </ion-thumbnail>
+            <div class="cate-detail">
+              <div class="cate-side-title" text-wrap>
+                {{ eventData.eventName }}
+              </div>
+              <div class="location-date">
+                <div class="location-txt">
+                  {{ eventData.location }}
+                </div>
+                <div class="date-txt">
+                  {{ eventData.eventDate }}
+                </div>
+                <div style="clear: both"></div>
+              </div>
+              <div class="cate-data">
+                <div class="cate-detail-txt" text-wrap>
+                  {{ (eventData.description.length > 45)? (eventData.description |
+                  slice:0:45)+'..':(eventData.description)
+                  }}
+                </div>
+                <div class="cate-read-more">
+                  Read More
+                </div>
+              </div>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+</ion-content>
