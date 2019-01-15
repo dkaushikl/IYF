@@ -30,7 +30,7 @@
       <div class="event-location-time">
         <ion-row>
           <ion-col col-4>
-            <img src="../../assets/imgs/Address.png" class="detail-location-img" />
+            <img src="./assets/imgs/Address.png" class="detail-location-img" />
             <span class="location-img-txt"> Address</span>
           </ion-col>
           <ion-col col-8 class="location-data">
@@ -39,7 +39,7 @@
         </ion-row>
         <ion-row>
           <ion-col col-4>
-            <img src="../../assets/imgs/Time2.png" class="detail-location-img" />
+            <img src="./assets/imgs/Time2.png" class="detail-location-img" />
             <span class="location-img-txt"> Time</span>
           </ion-col>
           <ion-col col-8 class="location-data">
@@ -49,7 +49,7 @@
         </ion-row>
         <ion-row>
           <ion-col col-4>
-            <img src="../../assets/imgs/Date2.png" class="detail-location-img" />
+            <img src="./assets/imgs/Date2.png" class="detail-location-img" />
             <span class="location-img-txt"> Date</span>
           </ion-col>
           <ion-col col-8 class="location-data">
@@ -59,7 +59,7 @@
         </ion-row>
       </div>
       <div>
-        <button ion-button color="primary" class="reminder-btn" (click)="addReminder()">Add Reminder</button>
+        <button ion-button color="primary" class="reminder-btn" (click)="addReminder(event.id)">Add Reminder</button>
       </div>
       <hr>
       <div class="description">

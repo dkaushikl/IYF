@@ -11,7 +11,7 @@ import { ToastController } from 'ionic-angular';
 @Injectable()
 export class GlobalVariableProvider {
 
-  public apiUrl: string = 'http://ithetasolution.com/yoga-festival/api/';
+  public apiUrl: string = 'http://13.127.141.151/yoga-festival/api/'; //'http://ithetasolution.com/yoga-festival/api/';
   public userInfo: any;
   public token: string;
 

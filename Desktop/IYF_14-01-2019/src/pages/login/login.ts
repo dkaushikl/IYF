@@ -30,17 +30,19 @@ export class LoginPage {
 
     this.api.postApiCall(this.loginData, 'login').then((success: any) => {
       this.loading.dismiss();
+      console.log('login', success);
       if (success && success.data && success.status == 1) {
-        localStorage.setItem('userInfo', success.data.user);
+        localStorage.setItem('userInfo', JSON.stringify(success.data.user));
         localStorage.setItem('token', success.data.token);
         this.navCtrl.setRoot('HomePage');
       }
     }, (error) => {
+      console.log('login err', error);
       this.loading.dismiss();
       const result = error.error;
       if (result && result.status == 0 && result.data && result.data.errors) {
         this.globalVariable.showToast(result.data.errors[0]);
-      } else {
+      } else if (result && result.message) {
         this.globalVariable.showToast(result.message);
       }
     });

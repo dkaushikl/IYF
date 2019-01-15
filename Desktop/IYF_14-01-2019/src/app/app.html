@@ -17,7 +17,7 @@
 
         <ion-list>
             <button menuClose ion-item no-lines *ngFor="let p of pages" (click)="openPage(p)">
-                <img [src]="p.icon" start class="sidemenu-icon" />
+                <img [src]="p.icon" start class="sidemenu-icon"  [ngClass]="p.title == 'Appoinment' ? 'appoinment-icon' : ''"/>
                 {{p.title}}
             </button>
 

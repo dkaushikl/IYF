@@ -34,54 +34,18 @@
     </ion-slide>
   </ion-slides>
 
-  <div class="card-slider">
+  <div class="card-slider" *ngIf="eventTypeData">
     <ion-scroll scrollX="true" direction="x">
 
-      <ion-card class="card1 slide-card">
+      <ion-card class="card1 slide-card" *ngFor="let eventType of eventTypeData">
         <img src="./assets/imgs/Yoga icon_White.png" class="scroll-slide-img" />
         <ion-card-header>
           <div class="count" text-wrap>
-            UPCOMMING EVENTS
+            {{ eventType.name }}
           </div>
         </ion-card-header>
         <ion-card-content class="scroll-slide-desc">
-          No Events
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card class="card2 slide-card">
-        <img src="./assets/imgs/Yoga icon_White.png" class="scroll-slide-img" />
-        <ion-card-header>
-          <div class="count" text-wrap>
-            TODAYS EVENTS
-          </div>
-        </ion-card-header>
-        <ion-card-content class="scroll-slide-desc">
-          No Events
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card class="card3 slide-card">
-        <img src="./assets/imgs/Yoga icon_White.png" class="scroll-slide-img" />
-        <ion-card-header>
-          <div class="count" text-wrap>
-            TODAYS EVENTS
-          </div>
-        </ion-card-header>
-        <ion-card-content class="scroll-slide-desc">
-          No Events
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card class="card4 slide-card">
-        <img src="./assets/imgs/Yoga icon_White.png" class="scroll-slide-img" />
-        <ion-card-header>
-          <div class="count" text-wrap>
-            TODAYS EVENTS
-          </div>
-        </ion-card-header>
-        <ion-card-content class="scroll-slide-desc">
-          No Events
+          {{ eventType.data }}
         </ion-card-content>
       </ion-card>
     </ion-scroll>

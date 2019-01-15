@@ -17,112 +17,33 @@
 </ion-header>
 
 <ion-content padding class="reminder-container">
-    <ion-card class="reminder-card">
-        <ion-list>
-            <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="./assets/imgs/slider-img.png">
-                </ion-thumbnail>
-                <h2 text-wrap>International Yoga Festival</h2>
-                <div style="margin-top: 8px;">
-                    <img src="../../assets/imgs/Address.png" class="card-location" />
-                    <span style="font-size: 14px; color: #c1c1c1">London</span>
-                </div>
-            </ion-item>
-            <hr>
-            <ion-row>
-                <ion-col col-6 style="padding-left: 10px">
-                    <img src="../../assets/imgs/Clock.png" class="card-bottom-img" />
-                    <span style="font-size: 12px;">09:00 AM</span>
-                </ion-col>
-                <!-- <ion-col col-2></ion-col> -->
-                <ion-col col-6 style="padding-right: 10px">
-                    <span style="font-size: 12px; float: right;">12 Jan, 2019</span>
-                    <img src="../../assets/imgs/calendar.png" style="float: right" class="card-bottom-img" />
+    <div *ngIf="reminderData">
+        <ion-card class="reminder-card" *ngFor="let reminder of reminderData">
+            <ion-list>
+                <ion-item>
+                    <ion-thumbnail item-start>
+                        <img [src]="reminder.event_image">
+                    </ion-thumbnail>
+                    <h2 text-wrap>{{ reminder.reminder_title }}</h2>
+                    <div style="margin-top: 8px;">
+                        <img src="./assets/imgs/Address.png" class="card-location" />
+                        <span style="font-size: 14px; color: #c1c1c1">{{ reminder.landmark }}</span>
+                    </div>
+                </ion-item>
+                <hr>
+                <ion-row>
+                    <ion-col col-6 style="padding-left: 10px">
+                        <img src="./assets/imgs/Clock.png" class="card-bottom-img" />
+                        <span style="font-size: 12px;">{{ reminder.event_time }}</span>
+                    </ion-col>
+                    <!-- <ion-col col-2></ion-col> -->
+                    <ion-col col-6 style="padding-right: 10px">
+                        <span style="font-size: 12px; float: right;">{{ reminder.event_date }}</span>
+                        <img src="./assets/imgs/calendar.png" style="float: right" class="card-bottom-img" />
 
-                </ion-col>
-            </ion-row>
-        </ion-list>
-    </ion-card>
-    <ion-card class="reminder-card">
-        <ion-list>
-            <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="./assets/imgs/slider-img.png">
-                </ion-thumbnail>
-                <h2 text-wrap>International Yoga Festival</h2>
-                <div style="margin-top: 8px;">
-                    <img src="../../assets/imgs/Address.png" class="card-location" />
-                    <span style="font-size: 14px; color: #c1c1c1">London</span>
-                </div>
-            </ion-item>
-            <hr>
-            <ion-row>
-                <ion-col col-6 style="padding-left: 10px">
-                    <img src="../../assets/imgs/Clock.png" class="card-bottom-img" />
-                    <span style="font-size: 12px;">09:00 AM</span>
-                </ion-col>
-                <!-- <ion-col col-2></ion-col> -->
-                <ion-col col-6 style="padding-right: 10px">
-                    <span style="font-size: 12px; float: right;">12 Jan, 2019</span>
-                    <img src="../../assets/imgs/calendar.png" style="float: right" class="card-bottom-img" />
-
-                </ion-col>
-            </ion-row>
-        </ion-list>
-    </ion-card>
-    <ion-card class="reminder-card">
-        <ion-list>
-            <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="./assets/imgs/slider-img.png">
-                </ion-thumbnail>
-                <h2 text-wrap>International Yoga Festival</h2>
-                <div style="margin-top: 8px;">
-                    <img src="../../assets/imgs/Address.png" class="card-location" />
-                    <span style="font-size: 14px; color: #c1c1c1">London</span>
-                </div>
-            </ion-item>
-            <hr>
-            <ion-row>
-                <ion-col col-6 style="padding-left: 10px">
-                    <img src="../../assets/imgs/Clock.png" class="card-bottom-img" />
-                    <span style="font-size: 12px;">09:00 AM</span>
-                </ion-col>
-                <!-- <ion-col col-2></ion-col> -->
-                <ion-col col-6 style="padding-right: 10px">
-                    <span style="font-size: 12px; float: right;">12 Jan, 2019</span>
-                    <img src="../../assets/imgs/calendar.png" style="float: right" class="card-bottom-img" />
-
-                </ion-col>
-            </ion-row>
-        </ion-list>
-    </ion-card>
-    <ion-card class="reminder-card">
-        <ion-list>
-            <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="./assets/imgs/slider-img.png">
-                </ion-thumbnail>
-                <h2 text-wrap>International Yoga Festival</h2>
-                <div style="margin-top: 8px;">
-                    <img src="../../assets/imgs/Address.png" class="card-location" />
-                    <span style="font-size: 14px; color: #c1c1c1">London</span>
-                </div>
-            </ion-item>
-            <hr>
-            <ion-row>
-                <ion-col col-6 style="padding-left: 10px">
-                    <img src="../../assets/imgs/Clock.png" class="card-bottom-img" />
-                    <span style="font-size: 12px;">09:00 AM</span>
-                </ion-col>
-                <!-- <ion-col col-2></ion-col> -->
-                <ion-col col-6 style="padding-right: 10px">
-                    <span style="font-size: 12px; float: right;">12 Jan, 2019</span>
-                    <img src="../../assets/imgs/calendar.png" style="float: right" class="card-bottom-img" />
-
-                </ion-col>
-            </ion-row>
-        </ion-list>
-    </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-list>
+        </ion-card>
+    </div>
 </ion-content>

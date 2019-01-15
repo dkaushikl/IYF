@@ -25,7 +25,7 @@ export class MyApp {
       { title: 'Appoinment', component: 'HomePage', icon: './assets/imgs/Appointment.png'  },
       { title: 'Settings', component: 'HomePage', icon: './assets/imgs/Settings.png'  },
       { title: 'About Us', component: 'AboutUsPage', icon: './assets/imgs/About us.png'  },
-      { title: 'Contact Us', component: 'ContactUsPage', icon: './assets/imgs/About us.png'  },
+      { title: 'Contact Us', component: 'ContactUsPage', icon: './assets/imgs/contact.png'  },
     ];
 
   }

@@ -41,7 +41,7 @@ export class RegisterPage {
       this.loading.dismiss();
       if (success && success.status == 1 && success.data) {
         this.globalVariable.userInfo = success.data.user;
-        localStorage.setItem('userInfo', this.globalVariable.userInfo);
+        localStorage.setItem('userInfo', JSON.stringify(this.globalVariable.userInfo));
         localStorage.setItem('token', success.data.token);
         this.navCtrl.setRoot('HomePage');
       }

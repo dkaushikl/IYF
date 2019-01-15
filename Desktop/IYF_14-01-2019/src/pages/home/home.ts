@@ -1,6 +1,6 @@
 import { ApiCallProvider } from './../../providers/api-call/api-call';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the HomePage page.
@@ -18,14 +18,18 @@ export class HomePage {
 
   public bannerData: any;
   public eventListData: any;
+  private loading: Loading;
+  public eventTypeData: any;
 
   constructor(
     public api: ApiCallProvider,
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    private loadingCtrl: LoadingController
   ) {
     this.getBannerImg();
     this.getEventList();
+    this.getEventType();
   }
 
   ionViewDidLoad() {
@@ -41,7 +45,10 @@ export class HomePage {
   }
 
   getEventList() {
+    this.loading = this.loadingCtrl.create({ spinner: 'dots', content: 'Please wait' });
+    this.loading.present();
     this.api.getApiCall('event').then((res: any) => {
+      this.loading.dismiss();
       if (res && res.data && res.status == 1) {
         this.eventListData = res.data;
       }
@@ -59,5 +66,14 @@ export class HomePage {
       catId: catId,
       catName: catName
     });
+  }
+
+  getEventType() {
+    this.api.getApiCall('event-type').then((res: any) => {
+      console.log('event-type', res);
+      if (res && res.data && res.status == 1) {
+        this.eventTypeData = res.data;
+      }
+    })
   }
 }
