@@ -25,7 +25,7 @@
                         <img [src]="reminder.event_image">
                     </ion-thumbnail>
                     <h2 text-wrap>{{ reminder.reminder_title }}</h2>
-                    <div style="margin-top: 8px;">
+                    <div style="margin-top: 8px;" *ngIf="reminder.landmark">
                         <img src="./assets/imgs/Address.png" class="card-location" />
                         <span style="font-size: 14px; color: #c1c1c1">{{ reminder.landmark }}</span>
                     </div>
@@ -47,3 +47,4 @@
         </ion-card>
     </div>
 </ion-content>
+

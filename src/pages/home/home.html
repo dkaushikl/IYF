@@ -24,11 +24,11 @@
       <img src="./assets/imgs/slider-bottom.png" class="slider-img-overlay" />
       <div class="slider-text">
         <div class="slider-text-left">
-          <span style="font-size: 13px; color: #eee">Wednesday 12, 2018</span><br>
-          <span style="font-size: 17px; font-weight: bold;">Theraputic Yoga</span>
+          <span style="font-size: 13px; color: #eee">{{ banner.date }}</span><br>
+          <span style="font-size: 17px; font-weight: bold;"> {{ banner.title }}</span>
         </div>
         <div class="slider-text-right">
-          <span style="font-size: 16px;">New York, USA</span>
+          <span style="font-size: 16px;">{{ banner.location }}</span>
         </div>
       </div>
     </ion-slide>
@@ -80,8 +80,8 @@
                 {{ eventData.eventName }}
               </div>
               <div class="location-date">
-                <div class="location-txt">
-                  {{ eventData.location }}
+                <div class="location-txt" *ngIf="eventData.landmark">
+                  {{ eventData.landmark }}
                 </div>
                 <div class="date-txt">
                   {{ eventData.eventDate }}

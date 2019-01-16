@@ -6,50 +6,53 @@ import { GlobalVariableProvider } from '../../providers/global-variable/global-v
 
 @IonicPage()
 @Component({
-    selector: 'page-add-reminder',
-    templateUrl: 'add-reminder.html',
+  selector: 'page-add-reminder',
+  templateUrl: 'add-reminder.html',
 })
 export class AddReminderPage {
-    public reminderData: any = {};
-    public eventId: any;
+  public reminderData: any = {};
+  public eventId: any;
 
-    constructor(
-        public api: ApiCallProvider,
-        public navCtrl: NavController,
-        public navParams: NavParams,
-        public calendar: Calendar,
-        public globalVariable: GlobalVariableProvider
-    ) {
-        this.eventId = this.navParams.get('eventId');
-    }
+  constructor(
+    public api: ApiCallProvider,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public calendar: Calendar,
+    public globalVariable: GlobalVariableProvider
+  ) {
+    this.eventId = this.navParams.get('eventId');
+  }
 
-    setReminder() {
-        let options: any = {
-            firstReminderMinutes: 5,
-            secondReminderMinutes: 10
-        };
-        // this.calendar.createEventWithOptions(this.reminderData.reminder_title, this.reminderData.address, this.reminderData.note, new Date(this.reminderData.start_date), new Date(this.reminderData.end_date), options).then(
-        //     () => {
-        //         this.globalVariable.showToast('Add event in reminder successfully');
-        //     },
-        //     (err) => { alert(err); }
-        // );
-        this.reminderData.event_id = this.eventId;
-        console.log('reminder Data', this.reminderData);
+  setReminder() {
 
-        this.api.postApiCall(this.reminderData, 'add-reminder').then((res: any) => {
-            console.log('add reminder', res);
-            if (res && res.status == 1) {
-                this.navCtrl.setRoot('HomePage');
-            } else if (res && res.status == 9) {
-                this.doLogout();
-            }
+    let options: any = {
+      firstReminderMinutes: 5,
+      secondReminderMinutes: 10
+    };
+
+    this.calendar.createEventWithOptions(this.reminderData.reminder_title, this.reminderData.address, this.reminderData.note, new Date(this.reminderData.start_date), new Date(this.reminderData.end_date), options);
+
+    this.reminderData.event_id = this.eventId;
+    this.api.postApiCall(this.reminderData, 'add-reminder').then((res: any) => {
+      if (res && res.status == 1) {
+        this.navCtrl.push('EventDetailPage', {
+          eventId: this.eventId
         });
-    }
+      } else if (res && res.status == 9) {
+        this.doLogout();
+      }
+    }, (error) => {
+      const result = error.error;
+      if (result && result.status == 9) {
+        this.globalVariable.showToast(result.message);
+        this.doLogout();
+      }
+    });
+  }
 
-    doLogout() {
-        localStorage.removeItem('userInfo');
-        localStorage.removeItem('token');
-        this.navCtrl.setRoot('LoginPage');
-    }
+  doLogout() {
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('token');
+    this.navCtrl.setRoot('LoginPage');
+  }
 }
